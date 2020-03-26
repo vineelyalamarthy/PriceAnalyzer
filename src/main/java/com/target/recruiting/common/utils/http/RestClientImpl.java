@@ -51,18 +51,18 @@ public class RestClientImpl implements RestClient {
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public <T> ResponseEntity<T> doGet(String url, Map<String, String> queryParams, Map<String, String> headers,
                                        Class<T> responseType) {
-        logger.debug("doGet: url={}", url);
-        logger.debug("doGet: queryParams={}", queryParams);
-        logger.debug("doGet: request headers : {}", headers);
+        logger.info("doGet: url={}", url);
+        logger.info("doGet: queryParams={}", queryParams);
+        logger.info("doGet: request headers : {}", headers);
         ResponseEntity<T> resp = null;
         HttpEntity requestEntity = new HttpEntity(buildHttpHeaders(headers));
 
         String urlWithQueryParams = buildUrlWithQueryParmas(url, queryParams);
-        logger.debug("urlWithQueryParams : {}", urlWithQueryParams);
+        logger.info("urlWithQueryParams : {}", urlWithQueryParams);
         try {
             resp = restTemplate.exchange(urlWithQueryParams, HttpMethod.GET, requestEntity, responseType);
 
-            logger.debug("doGet: Response from down stream service invocation {}:", JsonUtils.toJson(resp));
+            logger.info("doGet: Response from down stream service invocation {}:", JsonUtils.toJson(resp));
 
         } catch (HttpStatusCodeException httpException) {
             logger.error(SERVICE_INVOCATION_ERROR + " doGet - url={}, queryParams={}, request headers={}", url,
