@@ -1,5 +1,6 @@
-package com.target.recruiting.PriceAnalyzer;
+package com.target.recruiting.response;
 
+import com.target.recruiting.model.Product;
 import org.springframework.http.HttpStatus;
 
 public class ProductResponse {

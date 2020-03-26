@@ -1,4 +1,4 @@
-package com.target.recruiting.PriceAnalyzer;
+package com.target.recruiting.swagger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.spi.DocumentationType;

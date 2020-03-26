@@ -25,7 +25,5 @@ public interface RestClient {
         LinkedMultiValueMap<String, String> multiMap = new LinkedMultiValueMap<>();
         queryParams.entrySet().forEach(entry -> multiMap.add(entry.getKey(), entry.getValue()));
         return UriComponentsBuilder.fromHttpUrl(url).queryParams(multiMap).toUriString();
-
     }
-
 }

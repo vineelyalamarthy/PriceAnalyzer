@@ -1,16 +1,11 @@
-package com.target.recruiting.PriceAnalyzer;
+package com.target.recruiting.model;
 
 public class Product {
+    private String name;
+    private String price;
 
     public String getName() {
         return name;
-    }
-
-    @Override public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                '}';
     }
 
     public void setName(String name) {
@@ -25,6 +20,11 @@ public class Product {
         this.price = price;
     }
 
-    private String name;
-    private String price;
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                '}';
+    }
 }

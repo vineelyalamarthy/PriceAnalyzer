@@ -1,10 +1,8 @@
-package com.target.recruiting.PriceAnalyzer;
+package com.target.recruiting.api;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
-
-import javax.websocket.server.PathParam;
 
 public interface ProductAPI
 {

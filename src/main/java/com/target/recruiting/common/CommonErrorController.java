@@ -1,4 +1,4 @@
-package com.target.recruiting.PriceAnalyzer;
+package com.target.recruiting.common;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.boot.web.servlet.error.ErrorController;
@@ -9,9 +9,6 @@ import org.springframework.web.context.request.*;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.*;
 import com.target.recruiting.PriceAnalyzer.ExceptionResponse;
-
-
-
 
 @Controller
 @ControllerAdvice

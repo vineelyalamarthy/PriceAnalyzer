@@ -1,5 +1,8 @@
-package com.target.recruiting.PriceAnalyzer;
-
+package com.target.recruiting.controller;
+import com.target.recruiting.api.ProductAPI;
+import com.target.recruiting.model.Product;
+import com.target.recruiting.response.ProductResponse;
+import com.target.recruiting.service.ProductDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
