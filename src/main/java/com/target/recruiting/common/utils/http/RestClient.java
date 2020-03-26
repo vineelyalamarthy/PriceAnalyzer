@@ -1,4 +1,4 @@
-package com.target.recruiting.PriceAnalyzer;
+package com.target.recruiting.common.utils.http;
 import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;

@@ -5,18 +5,18 @@ import org.springframework.http.HttpStatus;
 
 public class ProductResponse {
 
-    private HttpStatus status;
+    private int statusCode;
 
     private Product product;
 
     private String message;
 
-    public HttpStatus getStatus() {
-        return status;
+    public int  getStatus() {
+        return statusCode;
     }
 
-    public void setStatus(HttpStatus status) {
-        this.status = status;
+    public void setStatus(int status) {
+        this.statusCode = status;
     }
 
     public Product getProduct() {
@@ -38,7 +38,7 @@ public class ProductResponse {
     @Override
     public String toString() {
         return "ProductResponse{" +
-                "status=" + status +
+                "status=" + statusCode +
                 ", product=" + product +
                 '}';
     }

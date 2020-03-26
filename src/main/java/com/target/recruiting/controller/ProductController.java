@@ -17,10 +17,19 @@ public class ProductController implements ProductAPI {
 
     @Override
     public ResponseEntity getProductDetails(@PathVariable("id") String productId) {
-        Product productDetails = productDataService.fetchProductDetails(Integer.parseInt(productId));
-        ProductResponse response = new ProductResponse();
-        response.setProduct(productDetails);
-        response.setStatus(HttpStatus.OK);
-        return new ResponseEntity<ProductResponse>(response, HttpStatus.OK);
+
+        try {
+            Product productDetails = productDataService.fetchProductDetails(Integer.parseInt(productId));
+            ProductResponse response = new ProductResponse();
+            response.setProduct(productDetails);
+            response.setStatus(200);
+            return new ResponseEntity<ProductResponse>(response, HttpStatus.OK);
+        }
+        catch(Exception e){
+            ProductResponse response = new ProductResponse();
+            response.setMessage(e.getLocalizedMessage() + " "+ e.toString());
+            response.setStatus(500);
+            return new ResponseEntity<ProductResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
