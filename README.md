@@ -1,5 +1,4 @@
-Test.
-# PriceAnalyzer
+# Sample project.
 
 How to run this program?
 
