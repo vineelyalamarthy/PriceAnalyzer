@@ -7,7 +7,7 @@ properties([
                 booleanParam(name: 'FORCE_BUILD', defaultValue: false, description: 'Force build the app and service or not.'),
                 booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
                 text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
-                choice(name: 'GRADLE_LOG_LEVEL', choices: ['stacktrace', 'info'],description: 'Gradle log level')
+                choice(name: 'GRADLE_LOG_LEVEL', choices: ['stacktrace', 'info'],description: 'Gradle log level'),
                 extendedChoice( 
         defaultValue: 'One,Two,Three,Four', 
         description: '', 
