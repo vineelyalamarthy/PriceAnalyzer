@@ -61,7 +61,7 @@ properties([
 			"full_name" : "John Doe"
 		}
 }/)
-
+                       return jsonEditorOptions;
                           """,)              
 ])
 ])
