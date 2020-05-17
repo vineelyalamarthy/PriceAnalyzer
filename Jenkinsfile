@@ -12,10 +12,11 @@ properties([
         defaultValue: 'One,Two,Three,Four', 
         description: '', 
         multiSelectDelimiter: ',', 
-        name: 'SAMPLE_EXTENDED_CHOICE', 
+        name: 'SAMPLE_EXTENDED_CHOICE_JSON', 
         quoteValue: false, 
         saveJSONParameterToFile: false, 
-        type: 'PT_CHECKBOX', 
+        type: 'PT_JSON',
+	javascriptFile: 'temp.json',
         value:'One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten', 
         visibleItemCount: 10)
         ])
