@@ -21,7 +21,8 @@ properties([
             defaultValue: '', 
             description: 'tag name', 
             type: 'PT_JSON', 
-            groovyScript: """def jsonEditorOptions = Boon.fromJson(/{
+            groovyScript: """import org.boon.Boon;
+	    def jsonEditorOptions = Boon.fromJson(/{
 		disable_edit_json: true,
         disable_properties: true,
         no_additional_properties: true,
