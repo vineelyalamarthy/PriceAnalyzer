@@ -23,7 +23,7 @@ properties([
 ])
 
 import org.boon.Boon;
-
+/**
 def jsonEditorOptions = Boon.fromJson(/{
 		disable_edit_json: true,
         disable_properties: true,
@@ -64,7 +64,7 @@ def jsonEditorOptions = Boon.fromJson(/{
 		}
 }/);
 
-
+**/
 
 // This shows a simple example of how to archive the build output artifacts.
 node {
