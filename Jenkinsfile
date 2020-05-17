@@ -18,9 +18,6 @@ properties([
                           """,),
 		extendedChoice( 
             name: 'ALL OPTIONS', 
-            defaultValue: '', 
-            description: 'tag name', 
-            type: 'PT_JSON', 
             groovyScript: """import org.boon.Boon;
 	    def jsonEditorOptions = Boon.fromJson(/{
 		disable_edit_json: true,
