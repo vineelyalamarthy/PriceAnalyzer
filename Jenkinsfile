@@ -8,18 +8,15 @@ properties([
                 booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
                 text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
                 choice(name: 'GRADLE_LOG_LEVEL', choices: ['stacktrace', 'info'],description: 'Gradle log level'),
-                extendedChoice( 
-        defaultValue: 'One,Two,Three,Four', 
-        description: '', 
-        multiSelectDelimiter: ',', 
-        name: 'SAMPLE_EXTENDED_CHOICE_JSON', 
-        quoteValue: false, 
-        saveJSONParameterToFile: false, 
-        type: 'PT_JSON',
-	javascriptFile: 'temp.json',
-        value:'One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten', 
-        visibleItemCount: 10)
-        ])
+		extendedChoice( 
+            name: 'TagName', 
+            defaultValue: '', 
+            description: 'tag name', 
+            type: 'PT_SINGLE_SELECT', 
+            groovyScript: """def gettags = ("git ls-remote -t https://github.com/tomerb3/supremedevops.git").execute()
+               return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
+                          """,)
+               
 ])
 
 import org.boon.Boon;
