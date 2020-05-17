@@ -19,7 +19,7 @@ properties([
                
 ])
 
-import org.boon.Boon;
+//import org.boon.Boon;
 /**
 def jsonEditorOptions = Boon.fromJson(/{
 		disable_edit_json: true,
