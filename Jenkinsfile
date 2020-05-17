@@ -60,7 +60,7 @@ properties([
 			"last_name" : "Doe",
 			"full_name" : "John Doe"
 		}
-}/)
+}/);
                        return jsonEditorOptions;
                           """,)              
 ])
