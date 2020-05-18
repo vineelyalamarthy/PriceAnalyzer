@@ -16,6 +16,7 @@ properties([
             groovyScript: """def gettags = ("git ls-remote -t https://github.com/tomerb3/supremedevops.git").execute()
                return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/', '').replaceAll("\\\\^\\\\{\\\\}", '')}
                           """,),
+		/**
 		extendedChoice( 
             name: 'ALL OPTIONS', 
             groovyScript: """import org.boon.Boon;
@@ -350,7 +351,10 @@ def jsonEditorOptions = Boon.fromJson(/{
 
 }/);
                        return jsonEditorOptions;
-                          """,)              
+                          """,)
+			  
+			  
+			  **/
 ])
 ])
 
