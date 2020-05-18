@@ -8,7 +8,7 @@ properties([
                 booleanParam(name: 'FORCE_BUILD', defaultValue: false, description: 'Force build the app and service or not.'),
                 booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
                 text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
-                extendedChoice bindings: '', description: '', groovyClasspath: '', groovyScript: '''
+                extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
 
   import org.boon.Boon;
 
