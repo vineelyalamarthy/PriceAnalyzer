@@ -3,7 +3,7 @@ properties([
     parameters([extendedChoice( 
     defaultValue: 'One,Two,Three,Four', 
     description: '', 
-    javascriptFile: '/path/to/file.json',
+    javascriptFile: '../data.json',
     multiSelectDelimiter: ',', 
     name: 'SAMPLE_EXTENDED_CHOICE', 
     quoteValue: false, 
