@@ -5,7 +5,7 @@
         disable_collapse: true,
         disable_array_add: true,
         disable_array_delete: true,
-        disable_array_reorder: true,
+        disable_array_reorder:            true,
         theme: "bootstrap2",
         iconlib:"fontawesome4",
 		schema: {
