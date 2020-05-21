@@ -73,7 +73,7 @@ properties([
 
                             "description": "You can input the Jenkins shared library version, the repository link:",
 
-                            "default": "release\/1.0"
+                            "default": "release1.0"
 
                         },
 
@@ -325,7 +325,7 @@ properties([
 
                             "description": "Any descriptions showing in release note",
 
-                            "default": "N\/A"
+                            "default": "NA"
 
                         }
 
