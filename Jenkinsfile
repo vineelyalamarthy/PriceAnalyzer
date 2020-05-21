@@ -71,7 +71,7 @@ properties([
 
                             "type": "string",
 
-                            "description": "You can input the Jenkins shared library version, the repository link: https:\/\/bitbucket.telenav.com\/scm\/sear\/jenkins-shared-libs.git",
+                            "description": "You can input the Jenkins shared library version, the repository link:",
 
                             "default": "release\/1.0"
 
