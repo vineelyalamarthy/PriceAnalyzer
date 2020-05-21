@@ -14,10 +14,10 @@ properties([
                                    multiSelectDelimiter: ',',
                                    name: 'SAMPLE_EXTENDED_CHOICE',
                                    quoteValue: false,
-                                   saveJSONParameterToFile: false,
+                                   saveJSONParameterToFile:  true,
                                    type: 'PT_JSON',
                                    value:'One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten',
-                                   visibleItemCount: 10),
+                                   visibleItemCount: 7),
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
 
