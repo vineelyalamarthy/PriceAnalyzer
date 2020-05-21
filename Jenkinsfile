@@ -10,7 +10,7 @@ properties([
                 text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
                 extendedChoice( defaultValue: 'One,Two,Three,Four',
                                    description: '',
-                                   javascriptFile: 'data_from_eric.json',
+                                   javascriptFile: 'test_data.json',
                                    multiSelectDelimiter: ',',
                                    name: 'SAMPLE_EXTENDED_CHOICE',
                                    quoteValue: false,
