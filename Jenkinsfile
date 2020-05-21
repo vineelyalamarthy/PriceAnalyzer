@@ -9,54 +9,337 @@ properties([
                 booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
                 text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
+                import org.boon.Boon;
 
-  import org.boon.Boon;
+                def jsonEditorOptions = Boon.fromJson(/{
 
-   def jsonEditorOptions = Boon.fromJson(/{
+                        disable_edit_json: true,
 
-        disable_edit_json: true,
+                        disable_properties: false,
 
-        disable_properties: true,
+                        no_additional_properties: true,
 
-        no_additional_properties: true,
+                        disable_collapse: false,
 
-        disable_collapse: true,
+                        disable_array_add: true,
 
-        disable_array_add: true,
+                        disable_array_delete: true,
 
-        disable_array_delete: true,
+                        disable_array_reorder: true,
 
-        disable_array_reorder: true,
+                        theme: "bootstrap3",
 
-        theme: "bootstrap2",
+                        iconlib:"fontawesome4",
 
-        iconlib:"fontawesome4",
+                        schema: {
 
-        schema: {
+                    "title": "Build Parameters",
 
-          "title": "Color Picker",
+                    "type": "object",
 
-          "type": "object",
+                    "required": [
 
-          "properties": {
+                        "ENTITY_ENGINE_NAME",
 
-            "color": {
+                        "LIB_VERSION",
 
-              "type": "string",
+                        "BUILD_TYPE"
 
-              "format": "color"
+                    ],
 
-            }
+                    "properties": {
 
-          }
+                        "ENTITY_EMBEDDED_VERSION": {
 
-        },
+                            "type": "string",
 
-        startval: {
+                            "description": "Embedded version for entity build"
 
-            color :"red"
+                        },
 
-        }}/);
+                        "ENTITY_ENGINE_NAME": {
+
+                            "type": "string",
+
+                            "description": "Engine name for entity build",
+
+                            "default": "entity-search-embedded-lite"
+
+                        },
+
+                        "LIB_VERSION": {
+
+                            "type": "string",
+
+                            "description": "You can input the Jenkins shared library version, the repository link: https:\/\/bitbucket.telenav.com\/scm\/sear\/jenkins-shared-libs.git",
+
+                            "default": "release\/1.0"
+
+                        },
+
+                        "BUILD_TYPE": {
+
+                            "type": "string",
+
+                            "enum": [
+
+                                "CI",
+
+                                "DEV",
+
+                                "NI",
+
+                                "RC"
+
+                            ]
+
+                        },
+
+                        "FORCE_BUILD": {
+
+                            "type": "boolean",
+
+                            "format": "checkbox",
+
+                            "description": "Force build the app and service or not."
+
+                        },
+
+                        "REFRESH_BUILD": {
+
+                            "type": "boolean",
+
+                            "format": "checkbox",
+
+                            "description": "Do NOT do anything only refresh current script and skip all steps."
+
+                        },
+
+                        "releaseNotes": {
+
+                            "title": "Release Notes",
+
+                            "type": "object",
+
+                            "properties": {
+
+                                "ONBOARD_JIRA_QUERY": {
+
+                                    "type": "string",
+
+                                    "description": "Onboard search engine release - jira query filter",
+
+                                    "default": "fixVersion in (Sprint119) AND project = SemanticSearch and issuetype in (Epic, Story, Bug) and resolution !=Unresolved and component not in (SearchQA, SearchQuality, SQ-Core, SQ-TestGeneration) order BY type DESC"
+
+                                },
+
+                                "CLOUD_JIRA_QUERY": {
+
+                                    "type": "string",
+
+                                    "description": "Cloud entity service release - jira query filter",
+
+                                    "default": "fixVersion in (Sprint119_Cloud) AND project = SemanticSearch AND ('Product Release' in ('Denali Product 2', 'Denali Product 1 2017 MY', 'Denali Product 1 2018 MY', 'Denali Product 1 2019 MY', 'Denali Product 1 2020 MY', 'Denali Product 1 2021 MY') OR 'Product Release' IS EMPTY) AND 'Search Mode' in ('Hybrid','Cloud_Only') ORDER BY type DESC"
+
+                                }
+
+                            }
+
+                        },
+
+                        "onboard": {
+
+                            "title": "Onboard Settings",
+
+                            "type": "object",
+
+                            "properties": {
+
+                                "ONBOARD_BUILD_PRODUCT": {
+
+                                    "type": "string",
+
+                                    "description": "build product",
+
+                                    "enum": [
+
+                                        "Denali",
+
+                                        "Sync4",
+
+                                        "Gen3"
+
+                                    ]
+
+                                },
+
+                                "ONBOARD_BUILD_REGIONS": {
+
+                                    "format": "checkbox",
+
+                                    "type": "array",
+
+                                    "items": {
+
+                                        "type": "string",
+
+                                        "enum": [
+
+                                            "af",
+
+                                            "anz",
+
+                                            "cn",
+
+                                            "eu",
+
+                                            "il",
+
+                                            "kr",
+
+                                            "mea",
+
+                                            "na",
+
+                                            "sa",
+
+                                            "sea",
+
+                                            "tr",
+
+                                            "tw"
+
+                                        ]
+
+                                    },
+
+                                    "uniqueItems": true
+
+                                },
+
+                                "ONBOARD_DATA_LOCATION": {
+
+                                    "format": "textarea",
+
+                                    "type": "string",
+
+                                    "description": "Index data location, please use comma to separate multiple locations.",
+
+                                    "default": ""
+
+                                }
+
+                            }
+
+                        },
+
+                        "cloud": {
+
+                            "title": "Cloud Settings",
+
+                            "type": "object",
+
+                            "properties": {
+
+                                "CLOUD_BUILD_PRODUCT": {
+
+                                    "type": "string",
+
+                                    "description": "build product",
+
+                                    "enum": [
+
+                                        "Denali",
+
+                                        "Sync4",
+
+                                        "Gen3"
+
+                                    ]
+
+                                },
+
+                                "CLOUD_BUILD_REGIONS": {
+
+                                    "format": "checkbox",
+
+                                    "type": "array",
+
+                                    "items": {
+
+                                        "type": "string",
+
+                                        "enum": [
+
+                                            "af",
+
+                                            "anz",
+
+                                            "cn",
+
+                                            "eu",
+
+                                            "il",
+
+                                            "kr",
+
+                                            "mea",
+
+                                            "na",
+
+                                            "sa",
+
+                                            "sea",
+
+                                            "tr",
+
+                                            "tw"
+
+                                        ]
+
+                                    },
+
+                                    "uniqueItems": true
+
+                                },
+
+                                "CLOUD_DATA_LOCATION": {
+
+                                    "format": "textarea",
+
+                                    "type": "string",
+
+                                    "description": "Index data location, please use comma to separate multiple locations.",
+
+                                    "default": ""
+
+                                }
+
+                            }
+
+                        },
+
+                        "DESCRIPTION": {
+
+                            "type": "string",
+
+                            "description": "Any descriptions showing in release note",
+
+                            "default": "N\/A"
+
+                        }
+
+                    }
+
+                },
+
+                       startval: {
+
+                         color :"red"
+
+                       }
+
+                }/);
 
    ''', multiSelectDelimiter: ',', name: 'Policy', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_JSON', visibleItemCount: 5)
         ])
