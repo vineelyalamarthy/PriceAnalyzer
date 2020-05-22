@@ -8,6 +8,16 @@ properties([
                 booleanParam(name: 'FORCE_BUILD', defaultValue: false, description: 'Force build the app and service or not.'),
                 booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
                 text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
+                /**
+                String fileContents = new File('/path/to/file').getText('UTF-8')
+
+                **/
+                extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
+                import org.boon.Boon;
+                def data = new File(/'data_from_eric.json/').getText('UTF-8');
+                def jsonEditorOptions = Boon.fromJson(/${data}/);
+                return jsonEditorOptions;
+                ''', multiSelectDelimiter: ',', name: 'Policy12345', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_JSON', visibleItemCount: 5),
                 extendedChoice( defaultValue: 'One,Two,Three,Four',
                                    description: '',
                                    javascriptFile: 'test_data.json',
@@ -18,7 +28,7 @@ properties([
                                    type: 'PT_JSON',
                                    value:'One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten',
                                    visibleItemCount: 7),
-                extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
+                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
 
                 def jsonEditorOptions = Boon.fromJson(/{
