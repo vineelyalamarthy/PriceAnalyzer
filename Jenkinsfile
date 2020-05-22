@@ -198,6 +198,20 @@ properties([
 
                             "type": "object",
 
+                             "required": [
+
+                                                                                "ONBOARD_BUILD_PRODUCT",
+
+                                                                                "ONBOARD_BUILD_REGIONS",
+
+                                                                                 "ONBOARD_DATA_LOCATION"
+
+
+
+
+
+                                                                            ],
+
                             "properties": {
 
                                 "ONBOARD_BUILD_PRODUCT": {
@@ -283,6 +297,20 @@ properties([
                             "title": "Cloud Settings",
 
                             "type": "object",
+
+                              "required": [
+
+                                                                                                            "CLOUD_BUILD_PRODUCT",
+
+                                                                                                            "CLOUD_BUILD_REGIONS",
+
+                                                                                                              "CLOUD_DATA_LOCATION"
+
+
+
+
+
+                                                                                                        ],
 
                             "properties": {
 
