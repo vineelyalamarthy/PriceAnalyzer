@@ -415,6 +415,17 @@ properties([
 
 import org.boon.Boon;
 
+
+
+
+@NonCPS
+def getUserData(String json) {
+    def jsonSlurper = new JsonSlurper()
+    def resultJson = jsonSlurper.parseText(json)
+    assert resultJson instanceof Map
+}
+
+
 node {
 
     print("JSON SLURPER..........")
@@ -427,10 +438,7 @@ node {
     //ObjectMapper mapper = JsonFactory.create();
 
 
-     def jsonSlurper = new JsonSlurper()
-     def object = jsonSlurper.parseText(hello)
-
-     assert object instanceof Map
+     getUserData("$hello")
 
      println("6666666666666666666666666666666666666666666666666666666666")
      println("${hello}")
