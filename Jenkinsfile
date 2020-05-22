@@ -15,7 +15,8 @@ properties([
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
                 println("VINEEL_TESTING_TESTING1233");
-                def data = new File('data_from_eric.json').getText('UTF-8');
+                println("****************************************************************************");
+                def data = new File('test_data.json').getText('UTF-8');
                 println("****************************************************************************");
                 println('${data}TELENAVHOSTINGDATA');
                 println("****************************************************************************");
