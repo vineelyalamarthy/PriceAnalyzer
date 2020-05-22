@@ -14,6 +14,7 @@ properties([
                 **/
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
+                println("VINEEL_TESTING_TESTING");
                 def data = new File('data_from_eric.json').getText('UTF-8');
                 def jsonEditorOptions = Boon.fromJson('${data}');
                 return jsonEditorOptions;
