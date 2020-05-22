@@ -413,7 +413,7 @@ node {
 
 
 
-     def hello  = params.HELLO.trim()
+     def hello  = "${Policy}"
 
      println("6666666666666666666666666666666666666666666666666666666666")
      println("${hello}")
