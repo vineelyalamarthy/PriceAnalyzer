@@ -15,7 +15,7 @@ properties([
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
                 def data = new File('data_from_eric.json').getText('UTF-8');
-                def jsonEditorOptions = Boon.fromJson(/${data}/);
+                def jsonEditorOptions = Boon.fromJson('${data}');
                 return jsonEditorOptions;
                 ''', multiSelectDelimiter: ',', name: 'Policy12345', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_JSON', visibleItemCount: 5),
                 extendedChoice( defaultValue: 'One,Two,Three,Four',
