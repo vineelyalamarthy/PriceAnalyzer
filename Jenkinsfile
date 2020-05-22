@@ -407,7 +407,7 @@ properties([
 node {
 
 
-    sh "echo {$Policy.extendedChoice.ENTITY_EMBEDDED_VERSION}"
+    sh "echo ${Policy.ENTITY_EMBEDDED_VERSION}"
     // Make the output directory.
     sh "mkdir -p output"
 
