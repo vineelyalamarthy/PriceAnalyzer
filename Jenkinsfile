@@ -406,11 +406,13 @@ properties([
 
 node {
 
-    def hello = "${params.ENTITY_EMBEDDED_VERSION}"
+
+     def buildType = params.BUILD_TYPE?.trim()
+
 
 
     println("****************")
-    println("${hello}")
+    println("${buildType}")
     println("****************")
     sh "echo ${ENTITY_EMBEDDED_VERSION}"
     // Make the output directory.
