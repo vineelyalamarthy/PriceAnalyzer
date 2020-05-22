@@ -410,7 +410,7 @@ properties([
 node {
 
 
-     def buildType = params.Policy.BUILD_TYPE.trim()
+
 
 
      def hello  = params.HELLO.trim()
