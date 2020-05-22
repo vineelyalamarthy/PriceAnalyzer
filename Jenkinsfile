@@ -415,6 +415,11 @@ node {
 
      def hello  = "${Policy}"
 
+     def jsonSlurper = new JsonSlurper()
+     def object = jsonSlurper.parseText(hello)
+
+     assert json instanceof Map
+
      println("6666666666666666666666666666666666666666666666666666666666")
      println("${hello}")
      println("77777777777777777777777777777777777777777777777777777777777777777777")
