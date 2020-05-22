@@ -408,7 +408,7 @@ properties([
 ])
 
 
-import groovy.json.JsonSlurper
+
 
 
 node {
@@ -419,7 +419,7 @@ node {
 
      def hello  = "${Policy}"
 
-     def jsonSlurper = new JsonSlurper()
+     def jsonSlurper = new new groovy.json.JsonSlurper()
      def object = jsonSlurper.parseText(hello)
 
      assert json instanceof Map
