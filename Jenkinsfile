@@ -64,7 +64,19 @@ properties([
 
                         "LIB_VERSION",
 
-                        "BUILD_TYPE"
+                        "BUILD_TYPE",
+
+                        "ENTITY_EMBEDDED_VERSION",
+
+                         "FORCE_BUILD",
+                          "REFRESH_BUILD",
+                           "releaseNotes",
+                           "onboard",
+                           "cloud"
+
+
+
+
 
                     ],
 
