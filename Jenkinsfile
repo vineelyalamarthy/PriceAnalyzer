@@ -36,7 +36,7 @@ properties([
 
                         disable_edit_json: true,
 
-                        disable_properties: false,
+                        disable_properties: true,
 
                         no_additional_properties: true,
 
