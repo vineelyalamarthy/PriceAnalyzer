@@ -407,7 +407,7 @@ properties([
 node {
 
 
-     def buildType = params.BUILD_TYPE?.trim()
+     def buildType = params.Policy.BUILD_TYPE.trim()
 
 
 
