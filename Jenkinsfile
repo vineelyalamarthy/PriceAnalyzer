@@ -408,12 +408,12 @@ properties([
 ])
 
 
+import groovy.json.JsonSlurper
 
 
 node {
 
     print("JSON SLURPER..........")
-    import groovy.json.JsonSlurper
 
 
 
