@@ -4,6 +4,9 @@ properties([
         //pipelineTriggers([cron(env.BRANCH_NAME == 'master' ? 'H H(0-2) * * *' : '')]),
         parameters([
 
+                 choice(name: 'HELLO', choices: 'CI\nDEV\nRC\nNI', description: 'build type'),
+
+
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
 
@@ -409,6 +412,12 @@ node {
 
      def buildType = params.Policy.BUILD_TYPE.trim()
 
+
+     def hello  = params.HELLO.trim()
+
+     println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+     println("${hello}")
+     println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 
 
     println("****************")
