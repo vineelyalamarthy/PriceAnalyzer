@@ -223,6 +223,8 @@ properties([
 
                                                             "description": "build product",
 
+                                                            "default" : "Sync4",
+
                                                             "enum": [
 
                                                                 "Denali",
@@ -240,6 +242,8 @@ properties([
                                                             "format": "checkbox",
 
                                                             "type": "array",
+
+                                                            "default": "na",
 
                                                             "items": {
 
