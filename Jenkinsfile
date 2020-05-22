@@ -3,33 +3,8 @@ properties([
         //pipelineTriggers([cron(env.BRANCH_NAME == 'master' ? 'H */3 * * *' : '')]),
         //pipelineTriggers([cron(env.BRANCH_NAME == 'master' ? 'H H(0-2) * * *' : '')]),
         parameters([
-                //string(name: 'LIB_VERSION', defaultValue: 'release/1.0', description: 'You can input the Jenkins shared library version, default is 0.1.0, the repository link: https://bitbucket.telenav.com/projects/SEAR/repos/jenkinsutils/browse'),
-                //choice(name: 'BUILD_TYPE', choices: 'CI\nDEV\nRC', description: 'Build type'),
-                //booleanParam(name: 'FORCE_BUILD', defaultValue: false, description: 'Force build the app and service or not.'),
-                //booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
-                //text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
-                /**
-                String fileContents = new File('/path/to/file').getText('UTF-8')
 
-                **/
-                /**
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
-                import org.boon.Boon;
-                println("VINEEL_TESTING_TESTING1233");
-                println("****************************************************************************");
-                println("2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222");
-                def data = new File('./test_data.json').getText('UTF-8');
-                println("3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333");
-
-                println('${data}TELENAVHOSTINGDATA');
-                println("****************************************************************************");
-                def jsonEditorOptions = Boon.fromJson('${data}');
-                return jsonEditorOptions;
-                ''', multiSelectDelimiter: ',', name: 'Policy12345', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_JSON', visibleItemCount: 5),
-
-                **/
-
-                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
 
                 def jsonEditorOptions = Boon.fromJson(/{
@@ -432,6 +407,7 @@ properties([
 node {
 
 
+    sh "echo {$Policy.extendedChoice.ENTITY_EMBEDDED_VERSION}"
     // Make the output directory.
     sh "mkdir -p output"
 
