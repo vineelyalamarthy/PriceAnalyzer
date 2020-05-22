@@ -423,7 +423,35 @@ def getUserData(String json) {
     def jsonSlurper = new JsonSlurper()
     def resultJson = jsonSlurper.parseText(json)
     assert resultJson instanceof Map
+    return resultJson
 }
+
+
+/**
+ *
+ * {
+ * "BUILD_TYPE": "CI",
+ * "ENTITY_EMBEDDED_VERSION": "wedewfwefwef",
+ * "ENTITY_ENGINE_NAME": "entity-search-embedded-lite",
+ * "FORCE_BUILD": false,
+ * "LIB_VERSION": "release1.0",
+ * "REFRESH_BUILD": false,
+ * -"cloud": {
+ * "CLOUD_BUILD_PRODUCT": "Sync4",
+ * +"CLOUD_BUILD_REGIONS": [ … ],
+ * "CLOUD_DATA_LOCATION": ""
+ * },
+ * -"onboard": {
+ * "ONBOARD_BUILD_PRODUCT": "Denali",
+ * "ONBOARD_BUILD_REGIONS": [ ],
+ * "ONBOARD_DATA_LOCATION": ""* },
+ * -"releaseNotes": {
+ * "CLOUD_JIRA_QUERY": "fixVersion in (Sprint119_Cloud) AND project = SemanticSearch AND ('Product Release' in ('Denali Product 2', 'Denali Product 1 2017 MY', 'Denali Product 1 2018 MY', 'Denali Product 1 2019 MY', 'Denali Product 1 2020 MY', 'Denali Product 1 2021 MY') OR 'Product Release' IS EMPTY) AND 'Search Mode' in ('Hybrid','Cloud_Only') ORDER BY type DESC",
+ * "ONBOARD_JIRA_QUERY": "fixVersion in (Sprint119) AND project = SemanticSearch and issuetype in (Epic, Story, Bug) and resolution !=Unresolved and component not in (SearchQA, SearchQuality, SQ-Core, SQ-TestGeneration) order BY type DESC"
+ * }* }
+ *
+ *
+ */
 
 
 node {
@@ -438,7 +466,34 @@ node {
     //ObjectMapper mapper = JsonFactory.create();
 
 
-     getUserData("$hello")
+     def outcome = getUserData("$hello")
+
+
+     def buildType = outcome['BUILD_TYPE']
+     def entityEmbeddedVersion = outcome['ENTITY_EMBEDDED_VERSION']
+     def entityEngineName = outcome['ENTITY_ENGINE_NAME']
+
+
+    def forceBuild = outcome['FORCE_BUILD']
+    def libVersion = outcome['LIB_VERSION']
+    def refreshBuild = outcome['REFRESH_BUILD']
+
+
+    def cloudParams = outcome['cloud']
+
+    def onBoardParams = outcome['onboard']
+
+    def onBoardBuildProduct = onBoardParams['ONBOARD_BUILD_PRODUCT']
+    def onBoardBuildRegions = onBoardParams['ONBOARD_BUILD_REGIONS']
+    def onBoardDataLocation = onBoardParams['ONBOARD_DATA_LOCATION']
+
+    def  cloudBuildProduct = onBoardParams['CLOUD_BUILD_PRODUCT']
+    def cloudBuildRegions = onBoardParams['CLOUD_BUILD_REGIONS']
+    def cloudDataLocation = onBoardParams['CLOUD_DATA_LOCATION']
+
+    def onBoardJIRAQuery = outcome['releaseNotes']['ONBOARD_JIRA_QUERY']
+    def cloudJIRAQuery = outcome['releaseNotes']['CLOUD_JIRA_QUERY']
+
 
      println("6666666666666666666666666666666666666666666666666666666666")
      println("${hello}")
