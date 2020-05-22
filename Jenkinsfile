@@ -16,8 +16,8 @@ properties([
                 import org.boon.Boon;
                 println("VINEEL_TESTING_TESTING1233");
                 println("****************************************************************************");
-                println("###########################################################################################");
-                def data = new File('test_data.json').getText('UTF-8');
+                println("2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222");
+                def data = new File('./test_data.json').getText('UTF-8');
                 println('${data}TELENAVHOSTINGDATA');
                 println("****************************************************************************");
                 def jsonEditorOptions = Boon.fromJson('${data}');
