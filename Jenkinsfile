@@ -412,7 +412,9 @@ node {
 
 
     println("****************")
+    println("HELLISH HELLLLLL")
     println("${buildType}")
+    println("HELLISH HELLLLLL DONE")
     println("****************")
     sh "echo ${ENTITY_EMBEDDED_VERSION}"
     // Make the output directory.
