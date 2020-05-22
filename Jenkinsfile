@@ -1,4 +1,7 @@
 #!groovy
+import org.boon.Boon;
+import groovy.json.*;
+
 properties([
         [$class: 'BuildDiscarderProperty', strategy:[$class: 'LogRotator', numToKeepStr: '200']],
         //pipelineTriggers([cron(env.BRANCH_NAME == 'master' ? 'H */3 * * *' : '')]),
@@ -420,10 +423,14 @@ node {
 
      def hello  = "${Policy}"
 
-     def jsonSlurper = new groovy.json.JsonSlurper()
+
+    //ObjectMapper mapper = JsonFactory.create();
+
+
+     def jsonSlurper = new JsonSlurper()
      def object = jsonSlurper.parseText(hello)
 
-     assert json instanceof Map
+     assert object instanceof Map
 
      println("6666666666666666666666666666666666666666666666666666666666")
      println("${hello}")
