@@ -40,7 +40,7 @@ properties([
 
                         no_additional_properties: true,
 
-                        disable_collapse: false,
+                        disable_collapse: true,
 
                         disable_array_add: true,
 
