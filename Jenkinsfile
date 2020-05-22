@@ -3,11 +3,11 @@ properties([
         //pipelineTriggers([cron(env.BRANCH_NAME == 'master' ? 'H */3 * * *' : '')]),
         //pipelineTriggers([cron(env.BRANCH_NAME == 'master' ? 'H H(0-2) * * *' : '')]),
         parameters([
-                string(name: 'LIB_VERSION', defaultValue: 'release/1.0', description: 'You can input the Jenkins shared library version, default is 0.1.0, the repository link: https://bitbucket.telenav.com/projects/SEAR/repos/jenkinsutils/browse'),
-                choice(name: 'BUILD_TYPE', choices: 'CI\nDEV\nRC', description: 'Build type'),
-                booleanParam(name: 'FORCE_BUILD', defaultValue: false, description: 'Force build the app and service or not.'),
-                booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
-                text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
+                //string(name: 'LIB_VERSION', defaultValue: 'release/1.0', description: 'You can input the Jenkins shared library version, default is 0.1.0, the repository link: https://bitbucket.telenav.com/projects/SEAR/repos/jenkinsutils/browse'),
+                //choice(name: 'BUILD_TYPE', choices: 'CI\nDEV\nRC', description: 'Build type'),
+                //booleanParam(name: 'FORCE_BUILD', defaultValue: false, description: 'Force build the app and service or not.'),
+                //booleanParam(name: 'REFRESH_BUILD', defaultValue: false, description: 'Do NOT do anything only refresh current script and skip all steps.'),
+                //text(name: 'DESCRIPTION', defaultValue: 'N/A', description: 'Any descriptions showing in release note'),
                 /**
                 String fileContents = new File('/path/to/file').getText('UTF-8')
 
@@ -153,6 +153,18 @@ properties([
                             "title": "Release Notes",
 
                             "type": "object",
+
+                             "required": [
+
+                                                    "ONBOARD_JIRA_QUERY",
+
+                                                    "CLOUD_JIRA_QUERY"
+
+
+
+
+
+                                                ],
 
                             "properties": {
 
