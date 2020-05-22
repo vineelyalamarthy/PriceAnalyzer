@@ -406,11 +406,11 @@ properties([
 
 node {
 
-    def hello = "${ENTITY_EMBEDDED_VERSION}"
+    def hello = "${params.ENTITY_EMBEDDED_VERSION}"
 
 
     println("****************")
-    println("$hello")
+    println("${hello}")
     println("****************")
     sh "echo ${ENTITY_EMBEDDED_VERSION}"
     // Make the output directory.
