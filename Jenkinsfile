@@ -421,9 +421,45 @@ import org.boon.Boon;
 @NonCPS
 def getUserData(String json) {
     def jsonSlurper = new JsonSlurper()
-    def resultJson = jsonSlurper.parseText(json)
-    assert resultJson instanceof Map
-    return resultJson
+    def outcome = jsonSlurper.parseText(json)
+    assert outcome instanceof Map
+
+    def buildType = outcome['BUILD_TYPE']
+    def entityEmbeddedVersion = outcome['ENTITY_EMBEDDED_VERSION']
+    def entityEngineName = outcome['ENTITY_ENGINE_NAME']
+
+
+    def forceBuild = outcome['FORCE_BUILD']
+    def libVersion = outcome['LIB_VERSION']
+    def refreshBuild = outcome['REFRESH_BUILD']
+
+
+    def cloudParams = outcome['cloud']
+
+    def onBoardParams = outcome['onboard']
+
+    def onBoardBuildProduct = onBoardParams['ONBOARD_BUILD_PRODUCT']
+    def onBoardBuildRegions = onBoardParams['ONBOARD_BUILD_REGIONS']
+    def onBoardDataLocation = onBoardParams['ONBOARD_DATA_LOCATION']
+
+    def  cloudBuildProduct = onBoardParams['CLOUD_BUILD_PRODUCT']
+    def cloudBuildRegions = onBoardParams['CLOUD_BUILD_REGIONS']
+    def cloudDataLocation = onBoardParams['CLOUD_DATA_LOCATION']
+
+    def onBoardJIRAQuery = outcome['releaseNotes']['ONBOARD_JIRA_QUERY']
+    def cloudJIRAQuery = outcome['releaseNotes']['CLOUD_JIRA_QUERY']
+
+
+    println("buildType: ${buildType}")
+    println("entityEmbeddedVersion: ${entityEmbeddedVersion}")
+    println("entityEngineName: ${entityEngineName}")
+    println("forceBuild: ${forceBuild}")
+
+    println("libVersion: ${libVersion}")
+    println("refreshBuild: ${refreshBuild}")
+
+
+
 }
 
 
@@ -466,42 +502,8 @@ node {
     //ObjectMapper mapper = JsonFactory.create();
 
 
-     def outcome = getUserData("$hello")
+     getUserData("$hello")
 
-
-     def buildType = outcome['BUILD_TYPE']
-     def entityEmbeddedVersion = outcome['ENTITY_EMBEDDED_VERSION']
-     def entityEngineName = outcome['ENTITY_ENGINE_NAME']
-
-
-    def forceBuild = outcome['FORCE_BUILD']
-    def libVersion = outcome['LIB_VERSION']
-    def refreshBuild = outcome['REFRESH_BUILD']
-
-
-    def cloudParams = outcome['cloud']
-
-    def onBoardParams = outcome['onboard']
-
-    def onBoardBuildProduct = onBoardParams['ONBOARD_BUILD_PRODUCT']
-    def onBoardBuildRegions = onBoardParams['ONBOARD_BUILD_REGIONS']
-    def onBoardDataLocation = onBoardParams['ONBOARD_DATA_LOCATION']
-
-    def  cloudBuildProduct = onBoardParams['CLOUD_BUILD_PRODUCT']
-    def cloudBuildRegions = onBoardParams['CLOUD_BUILD_REGIONS']
-    def cloudDataLocation = onBoardParams['CLOUD_DATA_LOCATION']
-
-    def onBoardJIRAQuery = outcome['releaseNotes']['ONBOARD_JIRA_QUERY']
-    def cloudJIRAQuery = outcome['releaseNotes']['CLOUD_JIRA_QUERY']
-
-
-    println("buildType: ${buildType}")
-    println("entityEmbeddedVersion: ${entityEmbeddedVersion}")
-    println("entityEngineName: ${entityEngineName}")
-    println("forceBuild: ${forceBuild}")
-
-    println("libVersion: ${libVersion}")
-    println("refreshBuild: ${refreshBuild}")
 
 
 
