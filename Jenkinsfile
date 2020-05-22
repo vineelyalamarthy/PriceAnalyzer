@@ -295,19 +295,7 @@ properties([
 
                                                 },
 
-                                                "DESCRIPTION": {
 
-                                                    "type": "string",
-
-                                                    "description": "Any descriptions showing in release note",
-
-                                                    "default": "NA"
-
-                                                }
-
-                                            }
-
-                                        },
 
                         "onboard": {
 
