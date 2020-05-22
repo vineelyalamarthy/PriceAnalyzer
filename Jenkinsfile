@@ -495,9 +495,16 @@ node {
     def cloudJIRAQuery = outcome['releaseNotes']['CLOUD_JIRA_QUERY']
 
 
-     println("6666666666666666666666666666666666666666666666666666666666")
-     println("${hello}")
-     println("77777777777777777777777777777777777777777777777777777777777777777777")
+    println("buildType: ${buildType}")
+    println("entityEmbeddedVersion: ${entityEmbeddedVersion}")
+    println("entityEngineName: ${entityEngineName}")
+    println("forceBuild: ${forceBuild}")
+
+    println("libVersion: ${libVersion}")
+    println("refreshBuild: ${refreshBuild}")
+
+
+
 
 
     println("****************")
