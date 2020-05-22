@@ -12,6 +12,7 @@ properties([
                 String fileContents = new File('/path/to/file').getText('UTF-8')
 
                 **/
+                /**
                 extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
                 println("VINEEL_TESTING_TESTING1233");
@@ -25,16 +26,9 @@ properties([
                 def jsonEditorOptions = Boon.fromJson('${data}');
                 return jsonEditorOptions;
                 ''', multiSelectDelimiter: ',', name: 'Policy12345', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_JSON', visibleItemCount: 5),
-                extendedChoice( defaultValue: 'One,Two,Three,Four',
-                                   description: '',
-                                   javascriptFile: 'test_data.json',
-                                   multiSelectDelimiter: ',',
-                                   name: 'SAMPLE_EXTENDED_CHOICE',
-                                   quoteValue: false,
-                                   saveJSONParameterToFile:  true,
-                                   type: 'PT_JSON',
-                                   value:'One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten',
-                                   visibleItemCount: 7),
+
+                **/
+
                  extendedChoice (bindings: '', description: '', groovyClasspath: '', groovyScript: '''
                 import org.boon.Boon;
 
