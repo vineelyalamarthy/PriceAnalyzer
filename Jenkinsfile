@@ -40,7 +40,7 @@ properties([
 
                         no_additional_properties: true,
 
-                        disable_collapse: true,
+                        disable_collapse: false,
 
                         disable_array_add: true,
 
@@ -100,6 +100,17 @@ properties([
 
                         },
 
+
+                           "FORCE_BUILD": {
+
+                                                    "type": "boolean",
+
+                                                    "format": "checkbox",
+
+                                                    "description": "Force build the app and service or not."
+
+                                                },
+
                         "LIB_VERSION": {
 
                             "type": "string",
@@ -128,15 +139,7 @@ properties([
 
                         },
 
-                        "FORCE_BUILD": {
 
-                            "type": "boolean",
-
-                            "format": "checkbox",
-
-                            "description": "Force build the app and service or not."
-
-                        },
 
                         "REFRESH_BUILD": {
 
@@ -191,6 +194,120 @@ properties([
                             }
 
                         },
+
+                         "cloud": {
+
+                                                    "title": "Cloud Settings",
+
+                                                    "type": "object",
+
+                                                      "required": [
+
+                                                                                                                                    "CLOUD_BUILD_PRODUCT",
+
+                                                                                                                                    "CLOUD_BUILD_REGIONS",
+
+                                                                                                                                      "CLOUD_DATA_LOCATION"
+
+
+
+
+
+                                                                                                                                ],
+
+                                                    "properties": {
+
+                                                        "CLOUD_BUILD_PRODUCT": {
+
+                                                            "type": "string",
+
+                                                            "description": "build product",
+
+                                                            "enum": [
+
+                                                                "Denali",
+
+                                                                "Sync4",
+
+                                                                "Gen3"
+
+                                                            ]
+
+                                                        },
+
+                                                        "CLOUD_BUILD_REGIONS": {
+
+                                                            "format": "checkbox",
+
+                                                            "type": "array",
+
+                                                            "items": {
+
+                                                                "type": "string",
+
+                                                                "enum": [
+
+                                                                    "af",
+
+                                                                    "anz",
+
+                                                                    "cn",
+
+                                                                    "eu",
+
+                                                                    "il",
+
+                                                                    "kr",
+
+                                                                    "mea",
+
+                                                                    "na",
+
+                                                                    "sa",
+
+                                                                    "sea",
+
+                                                                    "tr",
+
+                                                                    "tw"
+
+                                                                ]
+
+                                                            },
+
+                                                            "uniqueItems": true
+
+                                                        },
+
+                                                        "CLOUD_DATA_LOCATION": {
+
+                                                            "format": "textarea",
+
+                                                            "type": "string",
+
+                                                            "description": "Index data location, please use comma to separate multiple locations.",
+
+                                                            "default": ""
+
+                                                        }
+
+                                                    }
+
+                                                },
+
+                                                "DESCRIPTION": {
+
+                                                    "type": "string",
+
+                                                    "description": "Any descriptions showing in release note",
+
+                                                    "default": "NA"
+
+                                                }
+
+                                            }
+
+                                        },
 
                         "onboard": {
 
@@ -292,119 +409,7 @@ properties([
 
                         },
 
-                        "cloud": {
 
-                            "title": "Cloud Settings",
-
-                            "type": "object",
-
-                              "required": [
-
-                                                                                                            "CLOUD_BUILD_PRODUCT",
-
-                                                                                                            "CLOUD_BUILD_REGIONS",
-
-                                                                                                              "CLOUD_DATA_LOCATION"
-
-
-
-
-
-                                                                                                        ],
-
-                            "properties": {
-
-                                "CLOUD_BUILD_PRODUCT": {
-
-                                    "type": "string",
-
-                                    "description": "build product",
-
-                                    "enum": [
-
-                                        "Denali",
-
-                                        "Sync4",
-
-                                        "Gen3"
-
-                                    ]
-
-                                },
-
-                                "CLOUD_BUILD_REGIONS": {
-
-                                    "format": "checkbox",
-
-                                    "type": "array",
-
-                                    "items": {
-
-                                        "type": "string",
-
-                                        "enum": [
-
-                                            "af",
-
-                                            "anz",
-
-                                            "cn",
-
-                                            "eu",
-
-                                            "il",
-
-                                            "kr",
-
-                                            "mea",
-
-                                            "na",
-
-                                            "sa",
-
-                                            "sea",
-
-                                            "tr",
-
-                                            "tw"
-
-                                        ]
-
-                                    },
-
-                                    "uniqueItems": true
-
-                                },
-
-                                "CLOUD_DATA_LOCATION": {
-
-                                    "format": "textarea",
-
-                                    "type": "string",
-
-                                    "description": "Index data location, please use comma to separate multiple locations.",
-
-                                    "default": ""
-
-                                }
-
-                            }
-
-                        },
-
-                        "DESCRIPTION": {
-
-                            "type": "string",
-
-                            "description": "Any descriptions showing in release note",
-
-                            "default": "NA"
-
-                        }
-
-                    }
-
-                },
 
                        startval: {
 
