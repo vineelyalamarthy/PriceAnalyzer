@@ -406,7 +406,12 @@ properties([
 
 node {
 
+    def hello = "${ENTITY_EMBEDDED_VERSION}"
 
+
+    println("****************")
+    println("$hello")
+    println("****************")
     sh "echo ${ENTITY_EMBEDDED_VERSION}"
     // Make the output directory.
     sh "mkdir -p output"
