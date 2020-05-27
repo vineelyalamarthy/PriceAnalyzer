@@ -425,10 +425,10 @@ def String getUserData(String json) {
     assert outcome instanceof Map
 
 
-    def hell = Map[:]
+    //def hell = Map[:]
 
-    def buildType = outcome['BUILD_TYPE']
-    hell['buildType'] = buildType
+   // def buildType = outcome['BUILD_TYPE']
+    //hell['buildType'] = buildType
 
 
     def entityEmbeddedVersion = outcome['ENTITY_EMBEDDED_VERSION']
