@@ -462,6 +462,7 @@ def getUserData(String json) {
 
 }
 
+println ("VINEEL TESTING HIS CODE....")
 
 /**
  *
@@ -490,6 +491,10 @@ def getUserData(String json) {
  */
 
 
+
+
+
+/**
 node {
 
     print("JSON SLURPER..........")
@@ -529,3 +534,5 @@ node {
     // Archive the build output artifacts.
     archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'
 }
+
+ **/
