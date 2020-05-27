@@ -469,9 +469,11 @@ def Map getUserData(String json) {
 
 def personName =  getUserData("${Policy}")
 
+def hell = personName['FORCE_BUILD']
 
 
-println ("VINEEL TESTING HIS CODE....")
+
+println ("VINEEL TESTING HIS CODE ${hell}")
 
 /**
  *
