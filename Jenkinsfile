@@ -419,7 +419,7 @@ import org.boon.Boon;
 
 
 @NonCPS
-def getUserData(String json) {
+def String getUserData(String json) {
     def jsonSlurper = new JsonSlurper()
     def outcome = jsonSlurper.parseText(json)
     assert outcome instanceof Map
@@ -457,6 +457,10 @@ def getUserData(String json) {
 
     println("libVersion: ${libVersion}")
     println("refreshBuild: ${refreshBuild}")
+
+
+
+    return "VINEEL"
 
 
 
