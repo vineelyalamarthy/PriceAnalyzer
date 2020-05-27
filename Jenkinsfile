@@ -466,6 +466,11 @@ def String getUserData(String json) {
 
 }
 
+
+def personName =  getUserData("VINEEL")
+
+println ("Person with  name ${personName}")
+
 println ("VINEEL TESTING HIS CODE....")
 
 /**
