@@ -419,7 +419,7 @@ import org.boon.Boon;
 
 
 @NonCPS
-def String getUserData(String json) {
+def Map getUserData(String json) {
     def jsonSlurper = new JsonSlurper()
     def outcome = jsonSlurper.parseText(json)
     assert outcome instanceof Map
@@ -460,7 +460,7 @@ def String getUserData(String json) {
 
 
 
-    return "hell"
+    return outcome
 
 
 
