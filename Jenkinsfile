@@ -425,12 +425,6 @@ def String getUserData(String json) {
     assert outcome instanceof Map
 
 
-    //def hell = Map[:]
-
-   // def buildType = outcome['BUILD_TYPE']
-    //hell['buildType'] = buildType
-
-
     def entityEmbeddedVersion = outcome['ENTITY_EMBEDDED_VERSION']
     def entityEngineName = outcome['ENTITY_ENGINE_NAME']
 
@@ -476,9 +470,6 @@ def String getUserData(String json) {
 def personName =  getUserData("${Policy}")
 
 
-//def testResult = personName['buildType']
-
-//println ("Testing result..... ${testResult}")
 
 println ("VINEEL TESTING HIS CODE....")
 
