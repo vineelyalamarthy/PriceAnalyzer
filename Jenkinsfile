@@ -450,7 +450,7 @@ def String getUserData(String json) {
     def cloudJIRAQuery = outcome['releaseNotes']['CLOUD_JIRA_QUERY']
 
 
-    println("buildType: ${buildType}")
+    //println("buildType: ${buildType}")
     println("entityEmbeddedVersion: ${entityEmbeddedVersion}")
     println("entityEngineName: ${entityEngineName}")
     println("forceBuild: ${forceBuild}")
