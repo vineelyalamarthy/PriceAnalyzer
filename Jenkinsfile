@@ -419,7 +419,7 @@ import org.boon.Boon;
 
 
 @NonCPS
-def Map getUserData(String json) {
+def String getUserData(String json) {
     def jsonSlurper = new JsonSlurper()
     def outcome = jsonSlurper.parseText(json)
     assert outcome instanceof Map
@@ -466,7 +466,7 @@ def Map getUserData(String json) {
 
 
 
-    return hell
+    return "hell"
 
 
 
@@ -476,9 +476,9 @@ def Map getUserData(String json) {
 def personName =  getUserData("${Policy}")
 
 
-def testResult = personName['buildType']
+//def testResult = personName['buildType']
 
-println ("Testing result..... ${testResult}")
+//println ("Testing result..... ${testResult}")
 
 println ("VINEEL TESTING HIS CODE....")
 
