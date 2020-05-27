@@ -419,12 +419,18 @@ import org.boon.Boon;
 
 
 @NonCPS
-def String getUserData(String json) {
+def Map getUserData(String json) {
     def jsonSlurper = new JsonSlurper()
     def outcome = jsonSlurper.parseText(json)
     assert outcome instanceof Map
 
+
+    def hell = Map[:]
+
     def buildType = outcome['BUILD_TYPE']
+    hell['buildType'] = buildType
+
+
     def entityEmbeddedVersion = outcome['ENTITY_EMBEDDED_VERSION']
     def entityEngineName = outcome['ENTITY_ENGINE_NAME']
 
@@ -460,7 +466,7 @@ def String getUserData(String json) {
 
 
 
-    return "VINEEL"
+    return hell
 
 
 
@@ -469,7 +475,10 @@ def String getUserData(String json) {
 
 def personName =  getUserData("${Policy}")
 
-println ("Person with  name ${personName}")
+
+def testResult = personName['buildType']
+
+println ("Testing result..... ${testResult}")
 
 println ("VINEEL TESTING HIS CODE....")
 
